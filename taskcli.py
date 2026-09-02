@@ -49,8 +49,8 @@ def mark_done(task_id):
 
 def main():
     if len(sys.argv) < 2:
-print("Usage: taskcli.py [MAIN version]")
-        return
+	 print("Usage: taskcli.py [BRANCH version]")
+	return
     command = sys.argv[1]
     if command == "add":
         add_task(" ".join(sys.argv[2:]))

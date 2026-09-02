@@ -49,7 +49,7 @@ def mark_done(task_id):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: taskcli.py [add <text> | list | done <id>]")
+        print("Usage: taskcli.py [add | list | done]  (simple mode)")
         return
     command = sys.argv[1]
     if command == "add":

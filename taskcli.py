@@ -36,15 +36,28 @@ def list_tasks():
         print(f"[{mark}] {t['id']}. {t['text']}")
 
 
+def mark_done(task_id):
+    tasks = load_tasks()
+    for t in tasks:
+        if t["id"] == task_id:
+            t["done"] = True
+            save_tasks(tasks)
+            print(f"Marked task {task_id} as done.")
+            return
+    print(f"No task with id {task_id}")
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: taskcli.py [add <text> | list]")
+        print("Usage: taskcli.py [add <text> | list | done <id>]")
         return
     command = sys.argv[1]
     if command == "add":
         add_task(" ".join(sys.argv[2:]))
     elif command == "list":
         list_tasks()
+    elif command == "done":
+        mark_done(int(sys.argv[2]))
     else:
         print(f"Unknown command: {command}")
 

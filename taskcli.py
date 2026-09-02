@@ -45,7 +45,9 @@ def mark_done(task_id):
             print(f"Marked task {task_id} as done.")
             return
     print(f"No task with id {task_id}")
-
+def clear_tasks():
+    save_tasks([])
+    print("All tasks cleared.")
 
 def main():
     if len(sys.argv) < 2:
@@ -58,6 +60,8 @@ def main():
         list_tasks()
     elif command == "done":
         mark_done(int(sys.argv[2]))
+    elif command == "clear":
+        clear_tasks()
     else:
         print(f"Unknown command: {command}")
 
